@@ -18,7 +18,7 @@ namespace Niantic.Lightship.AR.Simulation
         private static void Register()
         {
             const string id = "Lightship-Simulation-Occlusion";
-            var xrOcclusionSubsystemCinfo = new XROcclusionSubsystemCinfo()
+            var xrOcclusionSubsystemCinfo = new XROcclusionSubsystemDescriptor.Cinfo()
             {
                 id = id,
                 providerType = typeof(LightshipSimulationProvider),
@@ -30,7 +30,7 @@ namespace Niantic.Lightship.AR.Simulation
                 environmentDepthTemporalSmoothingSupportedDelegate = () => Supported.Unsupported
             };
 
-            XROcclusionSubsystem.Register(xrOcclusionSubsystemCinfo);
+            XROcclusionSubsystemDescriptor.Register(xrOcclusionSubsystemCinfo);
         }
 
         private class LightshipSimulationProvider : Provider

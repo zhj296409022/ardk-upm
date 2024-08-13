@@ -38,7 +38,7 @@ namespace Niantic.Lightship.AR.Simulation
             // Workaround for https://niantic.atlassian.net/browse/ARDK-1015 to remove y-offset.
             if (!_removedOffset)
             {
-                var xrOrigin = FindObjectOfType<XROrigin>();
+                var xrOrigin = FindFirstObjectByType<XROrigin>();
                 if (xrOrigin != null)
                 {
                     xrOrigin.CameraYOffset = 0;
@@ -88,7 +88,7 @@ namespace Niantic.Lightship.AR.Simulation
         {
             if (!s_instance)
             {
-                SimulationCamera.GetOrCreateSimulationCamera();
+                GetOrCreateSimulationCamera();
                 var xrSimulationCamera = GameObject.Find("SimulationCamera");
 
                 s_instance = xrSimulationCamera.AddComponent<LightshipSimulationDevice>();
